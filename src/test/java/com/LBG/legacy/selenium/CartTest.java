@@ -11,6 +11,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -201,7 +202,8 @@ public class CartTest {
 
 // complete order 
 
-		WebElement completeOrderButton = this.driver.findElement(By.id("#completeorder"));
+		WebElement completeOrderButton = this.driver.findElement(By.id("completeorder"));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", completeOrderButton);
 		completeOrderButton.click();
 		Thread.sleep(500);
 
