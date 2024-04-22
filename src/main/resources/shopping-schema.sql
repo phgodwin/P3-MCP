@@ -19,5 +19,5 @@ FOREIGN KEY (`cart_id`) REFERENCES `cart` (`id`)
 CREATE TABLE `past_order` (
 `id` INT PRIMARY KEY AUTO_INCREMENT,
 `customer` VARCHAR(255),
-`purchased` VARCHAR(255),
+`purchased` VARCHAR(255)
 );
