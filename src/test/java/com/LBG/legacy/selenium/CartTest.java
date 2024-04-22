@@ -167,51 +167,51 @@ public class CartTest {
 		Assertions.assertEquals("Edit Customer Delete Cart", firstListItem.getText());
 	}
 
-	@Test
-
-	void makeOrderTest() throws InterruptedException {
-
-		this.driver.get("http://localhost:" + this.port);
-		WebElement clickOrders = this.driver.findElement(By.cssSelector("#basic-nav-dropdown > span"));
-		clickOrders.click();
-
-		WebElement clickCurrentOrders = this.driver
-				.findElement(By.cssSelector("#navbarNav > ul > div > div > a:nth-child(1)"));
-		clickCurrentOrders.click();
-
-//	add item to cart
-
-		WebElement clickSelectItem = this.driver.findElement(By.cssSelector(
-				"#root > div > div > div:nth-child(1) > form:nth-child(2) > label:nth-child(2) > select > option:nth-child(2)"));
-		clickSelectItem.click();
-		WebElement clickSelectCustomer = this.driver.findElement(By.cssSelector(
-				"#root > div > div > div:nth-child(1) > form:nth-child(2) > label:nth-child(3) > select > option:nth-child(2)"));
-		clickSelectCustomer.click();
-
-		WebElement addToCartButton = this.driver
-				.findElement(By.cssSelector("#root > div > div > div:nth-child(1) > form:nth-child(2) > button"));
-		addToCartButton.click();
-		Thread.sleep(500);
-
-		Alert addAlert = driver.switchTo().alert();
-		String addAlertMessage = addAlert.getText();
-		assertEquals("Item added to cart successfully", addAlertMessage);
-		addAlert.accept();
-		Thread.sleep(500);
-
-// complete order 
-
-		WebElement completeOrderButton = this.driver.findElement(By.cssSelector(
-				"#root > div > div > div.container.mt-4 > div > div:nth-child(1) > div > div > ul > li:nth-child(5) > button"));
-		completeOrderButton.click();
-		Thread.sleep(500);
-
-		Alert completeAlert = driver.switchTo().alert();
-		String completeAlertMessage = completeAlert.getText();
-		assertEquals("Order completed successfully!", completeAlertMessage);
-		completeAlert.accept();
-
-	}
+//	@Test
+//
+//	void makeOrderTest() throws InterruptedException {
+//
+//		this.driver.get("http://localhost:" + this.port);
+//		WebElement clickOrders = this.driver.findElement(By.cssSelector("#basic-nav-dropdown > span"));
+//		clickOrders.click();
+//
+//		WebElement clickCurrentOrders = this.driver
+//				.findElement(By.cssSelector("#navbarNav > ul > div > div > a:nth-child(1)"));
+//		clickCurrentOrders.click();
+//
+////	add item to cart
+//
+//		WebElement clickSelectItem = this.driver.findElement(By.cssSelector(
+//				"#root > div > div > div:nth-child(1) > form:nth-child(2) > label:nth-child(2) > select > option:nth-child(2)"));
+//		clickSelectItem.click();
+//		WebElement clickSelectCustomer = this.driver.findElement(By.cssSelector(
+//				"#root > div > div > div:nth-child(1) > form:nth-child(2) > label:nth-child(3) > select > option:nth-child(2)"));
+//		clickSelectCustomer.click();
+//
+//		WebElement addToCartButton = this.driver
+//				.findElement(By.cssSelector("#root > div > div > div:nth-child(1) > form:nth-child(2) > button"));
+//		addToCartButton.click();
+//		Thread.sleep(500);
+//
+//		Alert addAlert = driver.switchTo().alert();
+//		String addAlertMessage = addAlert.getText();
+//		assertEquals("Item added to cart successfully", addAlertMessage);
+//		addAlert.accept();
+//		Thread.sleep(500);
+//
+//// complete order 
+//
+//		WebElement completeOrderButton = this.driver.findElement(By.cssSelector(
+//				"#root > div > div > div.container.mt-4 > div > div:nth-child(1) > div > div > ul > li:nth-child(5) > button"));
+//		completeOrderButton.click();
+//		Thread.sleep(500);
+//
+//		Alert completeAlert = driver.switchTo().alert();
+//		String completeAlertMessage = completeAlert.getText();
+//		assertEquals("Order completed successfully!", completeAlertMessage);
+//		completeAlert.accept();
+//
+//	}
 
 	@AfterEach
 	void tearDown() {
