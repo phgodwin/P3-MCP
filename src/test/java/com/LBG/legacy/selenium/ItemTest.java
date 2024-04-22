@@ -1,9 +1,11 @@
 package com.LBG.legacy.selenium;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.time.Duration;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -18,8 +20,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.test.context.jdbc.Sql;
+import org.springframework.test.context.jdbc.Sql.ExecutionPhase;
 
 @SpringBootTest(webEnvironment = WebEnvironment.DEFINED_PORT)
+@Sql(scripts = { "classpath:shopping-schema.sql",
+		"classpath:shopping-data.sql" }, executionPhase = ExecutionPhase.BEFORE_TEST_METHOD)
 
 public class ItemTest {
 
@@ -117,11 +123,16 @@ public class ItemTest {
 		WebElement deleteItemButton = this.driver.findElement(By.cssSelector(
 				"#root > div > div > div.container.mt-4 > div > div > div > div > ul > li:nth-child(3) > button"));
 		deleteItemButton.click();
-//		Thread.sleep(500);
-//		WebElement someElementAfterDelete = this.driver
-//				.findElement(By.cssSelector("#root > div > div > div.container.mt-4 > div > div > div"));
-//		assertTrue(someElementAfterDelete.isDisplayed(), "the element is not displayed after delete");
+		Thread.sleep(500);
+		WebElement someElementAfterDelete = this.driver
+				.findElement(By.cssSelector("#root > div > div > div.container.mt-4 > div > div > div"));
+		assertTrue(someElementAfterDelete.isDisplayed(), "the element is not displayed after delete");
 
+	}
+
+	@AfterEach
+	void tearDown() {
+		this.driver.quit();
 	}
 
 }

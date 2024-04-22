@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.time.Duration;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
@@ -18,8 +19,12 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.test.context.jdbc.Sql;
+import org.springframework.test.context.jdbc.Sql.ExecutionPhase;
 
 @SpringBootTest(webEnvironment = WebEnvironment.DEFINED_PORT)
+@Sql(scripts = { "classpath:shopping-schema.sql",
+		"classpath:shopping-data.sql" }, executionPhase = ExecutionPhase.BEFORE_TEST_METHOD)
 @TestMethodOrder(OrderAnnotation.class)
 
 public class MiscTest {
@@ -121,6 +126,11 @@ public class MiscTest {
 		assertEquals("Total for Test business 3's cart: £11.79", totalAlertMessage);
 		totalAlert.accept();
 
+	}
+
+	@AfterEach
+	void tearDown() {
+		this.driver.quit();
 	}
 
 }
