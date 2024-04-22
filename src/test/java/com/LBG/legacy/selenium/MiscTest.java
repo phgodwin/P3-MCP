@@ -50,6 +50,9 @@ public class MiscTest {
 		WebElement clickPassword = this.driver.findElement(By.cssSelector(
 				"#root > div > div > div > div > div:nth-child(3) > label:nth-child(4) > input[type=password]"));
 		clickPassword.sendKeys("Password");
+
+		Thread.sleep(500);
+
 		WebElement clickLogin = this.driver
 				.findElement(By.cssSelector("#root > div > div > div > div > div:nth-child(3) > button"));
 		clickLogin.click();
@@ -74,6 +77,8 @@ public class MiscTest {
 		WebElement clickCurrentOrders = this.driver
 				.findElement(By.cssSelector("#navbarNav > ul > div > div > a:nth-child(1)"));
 		clickCurrentOrders.click();
+
+		Thread.sleep(500);
 
 		WebElement completeOrderButton = this.driver.findElement(By.cssSelector(
 				"#root > div > div > div.container.mt-4 > div > div:nth-child(3) > div > div > ul > li:nth-child(5) > button"));
@@ -114,6 +119,8 @@ public class MiscTest {
 		WebElement clickCurrentOrders = this.driver
 				.findElement(By.cssSelector("#navbarNav > ul > div > div > a:nth-child(1)"));
 		clickCurrentOrders.click();
+
+		Thread.sleep(500);
 
 		WebElement clickCalculateTotal = this.driver.findElement(By.cssSelector(
 				"#root > div > div > div.container.mt-4 > div > div:nth-child(3) > div > div > ul > li:nth-child(4) > button"));
