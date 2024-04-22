@@ -13,7 +13,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -24,9 +23,9 @@ import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.jdbc.Sql.ExecutionPhase;
 
 @SpringBootTest(webEnvironment = WebEnvironment.DEFINED_PORT)
+@TestMethodOrder(OrderAnnotation.class)
 @Sql(scripts = { "classpath:shopping-schema.sql",
 		"classpath:shopping-data.sql" }, executionPhase = ExecutionPhase.BEFORE_TEST_METHOD)
-@TestMethodOrder(OrderAnnotation.class)
 
 public class MiscTest {
 
@@ -39,7 +38,7 @@ public class MiscTest {
 	void init() {
 		this.driver = new ChromeDriver();
 		this.driver.manage().window().maximize();
-		this.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		this.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	};
 
 	@Test
@@ -51,8 +50,8 @@ public class MiscTest {
 		WebElement clickPassword = this.driver.findElement(By.cssSelector(
 				"#root > div > div > div > div > div:nth-child(3) > label:nth-child(4) > input[type=password]"));
 		clickPassword.sendKeys("Password");
-		WebElement clickLogin = this.driver.findElement(By.id("login"));
-		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", clickLogin);
+		WebElement clickLogin = this.driver
+				.findElement(By.cssSelector("#root > div > div > div > div > div:nth-child(3) > button"));
 		clickLogin.click();
 		Thread.sleep(500);
 		WebElement clickNextQuote = this.driver.findElement(By.cssSelector(
@@ -76,8 +75,8 @@ public class MiscTest {
 				.findElement(By.cssSelector("#navbarNav > ul > div > div > a:nth-child(1)"));
 		clickCurrentOrders.click();
 
-		WebElement completeOrderButton = this.driver.findElement(By.id("completeorder"));
-		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", completeOrderButton);
+		WebElement completeOrderButton = this.driver.findElement(By.cssSelector(
+				"#root > div > div > div.container.mt-4 > div > div:nth-child(3) > div > div > ul > li:nth-child(5) > button"));
 		completeOrderButton.click();
 		Thread.sleep(500);
 
@@ -116,8 +115,8 @@ public class MiscTest {
 				.findElement(By.cssSelector("#navbarNav > ul > div > div > a:nth-child(1)"));
 		clickCurrentOrders.click();
 
-		WebElement clickCalculateTotal = this.driver.findElement(By.id("total"));
-		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", clickCalculateTotal);
+		WebElement clickCalculateTotal = this.driver.findElement(By.cssSelector(
+				"#root > div > div > div.container.mt-4 > div > div:nth-child(3) > div > div > ul > li:nth-child(4) > button"));
 		clickCalculateTotal.click();
 
 		Thread.sleep(500);

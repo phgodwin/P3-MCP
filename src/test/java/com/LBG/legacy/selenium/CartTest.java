@@ -11,7 +11,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -36,7 +35,7 @@ public class CartTest {
 	void init() {
 		this.driver = new ChromeDriver();
 		this.driver.manage().window().maximize();
-		this.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		this.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	};
 
 	@Test
@@ -202,8 +201,8 @@ public class CartTest {
 
 // complete order 
 
-		WebElement completeOrderButton = this.driver.findElement(By.id("completeorder"));
-		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", completeOrderButton);
+		WebElement completeOrderButton = this.driver.findElement(By.cssSelector(
+				"#root > div > div > div.container.mt-4 > div > div:nth-child(1) > div > div > ul > li:nth-child(5) > button"));
 		completeOrderButton.click();
 		Thread.sleep(500);
 
