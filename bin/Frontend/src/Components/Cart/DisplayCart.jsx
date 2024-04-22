@@ -11,8 +11,8 @@ function DisplayCart() {
     axios
       .get("http://localhost:8082/cart/get")
       .then((response) => {
-        setCarts(response.data);      
-     
+        setCarts(response.data);
+
       })
       .catch(console.log);
   }
@@ -47,7 +47,7 @@ function DisplayCart() {
 
   }
 
-  function deleteButton(cartId,cartItems) {
+  function deleteButton(cartId, cartItems) {
 
     if (cartItems.length !== 0) {
       return (
@@ -63,28 +63,28 @@ function DisplayCart() {
 
   }
 
-  
+
 
   const completeButton = (cartId, customer, items) => {
- 
+
 
     const itemString = items.map(item => `${item.name}`).join(', ');
-    
-    
+
+
     axios.post("http://localhost:8082/pastorder/create", {
       customer: customer,
       purchased: itemString
     })
-    .then((response) => {
-      alert("Order completed successfully!");
-      console.log("Order completed:", response.data);
-      
-      items.forEach(item => RemoveFromCart(item.id));
-   
-    })
-    .catch((error) => {
-      console.error("Error completing order:", error);
-    });
+      .then((response) => {
+        alert("Order completed successfully!");
+        console.log("Order completed:", response.data);
+
+        items.forEach(item => RemoveFromCart(item.id));
+
+      })
+      .catch((error) => {
+        console.error("Error completing order:", error);
+      });
   };
 
 
@@ -125,7 +125,7 @@ function DisplayCart() {
 
                   <li className="list-group-item">
                     <button
-                    style={{marginRight: "20px"}}
+                      style={{ marginRight: "20px" }}
                       type="button"
                       className="btn btn-warning"
                       onClick={() => {
@@ -140,9 +140,10 @@ function DisplayCart() {
 
                     {deleteButton(singleCart.id, singleCart.item)}
                   </li>
-                 
+
                   <li className="list-group-item" >
-                  <button
+                    <button
+                      id="total"
                       type="button"
                       className="btn btn-primary"
                       onClick={() => {
@@ -152,10 +153,10 @@ function DisplayCart() {
                     >
                       Calculate Total (inc. service charge)
                     </button>
-                    </li>
-                    <li className="list-group-item">
+                  </li>
+                  <li className="list-group-item">
 
-                        <button type="button" class="btn btn-success" onClick={() => completeButton(singleCart.id, singleCart.customer, singleCart.item)} >Complete Order</button>
+                    <button id="completeorder" type="button" class="btn btn-success" onClick={() => completeButton(singleCart.id, singleCart.customer, singleCart.item)} >Complete Order</button>
                   </li>
 
                 </ul>

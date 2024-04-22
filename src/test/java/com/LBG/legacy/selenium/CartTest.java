@@ -201,8 +201,7 @@ public class CartTest {
 
 // complete order 
 
-		WebElement completeOrderButton = this.driver.findElement(By.cssSelector(
-				"#root > div > div > div.container.mt-4 > div > div:nth-child(1) > div > div > ul > li:nth-child(5) > button"));
+		WebElement completeOrderButton = this.driver.findElement(By.id("#completeorder"));
 		completeOrderButton.click();
 		Thread.sleep(500);
 

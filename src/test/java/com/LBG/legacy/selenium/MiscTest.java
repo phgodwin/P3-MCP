@@ -51,7 +51,7 @@ public class MiscTest {
 				"#root > div > div > div > div > div:nth-child(3) > label:nth-child(4) > input[type=password]"));
 		clickPassword.sendKeys("Password");
 		WebElement clickLogin = this.driver
-				.findElement(By.cssSelector("#root > div > div > div > div > div:nth-child(3) > button"));
+				.findElement(By.id("#login"));
 		clickLogin.click();
 		Thread.sleep(500);
 		WebElement clickNextQuote = this.driver.findElement(By.cssSelector(
@@ -75,8 +75,7 @@ public class MiscTest {
 				.findElement(By.cssSelector("#navbarNav > ul > div > div > a:nth-child(1)"));
 		clickCurrentOrders.click();
 
-		WebElement completeOrderButton = this.driver.findElement(By.cssSelector(
-				"#root > div > div > div.container.mt-4 > div > div:nth-child(3) > div > div > ul > li:nth-child(5) > button"));
+		WebElement completeOrderButton = this.driver.findElement(By.id("#completeorder"));
 		completeOrderButton.click();
 		Thread.sleep(500);
 
@@ -115,8 +114,7 @@ public class MiscTest {
 				.findElement(By.cssSelector("#navbarNav > ul > div > div > a:nth-child(1)"));
 		clickCurrentOrders.click();
 
-		WebElement clickCalculateTotal = this.driver.findElement(By.cssSelector(
-				"#root > div > div > div.container.mt-4 > div > div:nth-child(3) > div > div > ul > li:nth-child(4) > button"));
+		WebElement clickCalculateTotal = this.driver.findElement(By.id("#total"));
 		clickCalculateTotal.click();
 
 		Thread.sleep(500);
