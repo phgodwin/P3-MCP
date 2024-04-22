@@ -51,8 +51,6 @@ public class MiscTest {
 				"#root > div > div > div > div > div:nth-child(3) > label:nth-child(4) > input[type=password]"));
 		clickPassword.sendKeys("Password");
 
-		Thread.sleep(500);
-
 		WebElement clickLogin = this.driver
 				.findElement(By.cssSelector("#root > div > div > div > div > div:nth-child(3) > button"));
 		clickLogin.click();

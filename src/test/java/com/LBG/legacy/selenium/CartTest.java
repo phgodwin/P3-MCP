@@ -35,7 +35,7 @@ public class CartTest {
 	void init() {
 		this.driver = new ChromeDriver();
 		this.driver.manage().window().maximize();
-		this.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		this.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 	};
 
 	@Test
