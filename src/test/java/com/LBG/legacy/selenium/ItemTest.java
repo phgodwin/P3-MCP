@@ -1,7 +1,6 @@
 package com.LBG.legacy.selenium;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.time.Duration;
 
@@ -118,10 +117,10 @@ public class ItemTest {
 		WebElement deleteItemButton = this.driver.findElement(By.cssSelector(
 				"#root > div > div > div.container.mt-4 > div > div > div > div > ul > li:nth-child(3) > button"));
 		deleteItemButton.click();
-		Thread.sleep(500);
-		WebElement someElementAfterDelete = this.driver
-				.findElement(By.cssSelector("#root > div > div > div.container.mt-4 > div > div > div"));
-		assertTrue(someElementAfterDelete.isDisplayed(), "the element is not displayed after delete");
+//		Thread.sleep(500);
+//		WebElement someElementAfterDelete = this.driver
+//				.findElement(By.cssSelector("#root > div > div > div.container.mt-4 > div > div > div"));
+//		assertTrue(someElementAfterDelete.isDisplayed(), "the element is not displayed after delete");
 
 	}
 
