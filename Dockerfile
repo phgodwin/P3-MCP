@@ -8,4 +8,4 @@ COPY /target/Spring-Legacy-0.0.1-SNAPSHOT.jar.
 EXPOSE 8082
  
 # Run the jar file
-CMD ["java", "-jar", "Spring-Legacy-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "Spring-Legacy-0.0.1-SNAPSHOT.jar"] 
