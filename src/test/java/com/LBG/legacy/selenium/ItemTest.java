@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.time.Duration;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -127,6 +128,11 @@ public class ItemTest {
 				.findElement(By.cssSelector("#root > div > div > div.container.mt-4 > div > div > div"));
 		assertTrue(someElementAfterDelete.isDisplayed(), "the element is not displayed after delete");
 
+	}
+
+	@AfterEach
+	void tearDown() {
+		this.driver.quit();
 	}
 
 }
