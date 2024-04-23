@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Login from './Login';
 import { Card, ListGroup, ListGroupItem, Carousel } from 'react-bootstrap';
+import Bug from './Bug';
 
 function Home() {
     const [isLoggedIn, setLoggedIn] = useState(false);
@@ -110,6 +111,8 @@ function Home() {
                             <ListGroupItem>Protect Your Passwords: Avoid sharing passwords and update them regularly. Strong, unique passwords are your first line of defense.</ListGroupItem>
                             <ListGroupItem>Report Anomalies Promptly: If you notice anything unusual during the login process or suspect unauthorized access, report it immediately to our IT team.</ListGroupItem>
                         </ListGroup>
+
+                        <Bug />
                         
                         <Login onLogin={handleLogin} />
                     </Card.Body>
