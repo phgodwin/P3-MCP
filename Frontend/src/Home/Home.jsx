@@ -112,7 +112,7 @@ function Home() {
                             <ListGroupItem>Report Anomalies Promptly: If you notice anything unusual during the login process or suspect unauthorized access, report it immediately to our IT team.</ListGroupItem>
                         </ListGroup>
 
-                        <Bug />
+                      
                         
                         <Login onLogin={handleLogin} />
                     </Card.Body>
