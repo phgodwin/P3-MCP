@@ -10,6 +10,7 @@ import './App.css';
 import logo from './LPLogo.png';
 import { NavDropdown } from 'react-bootstrap';
 import PastOrders from './Components/PastOrders/PastOrders';
+import Bug from './Home/Bug';
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
                   <Link className="dropdown-item" to='/pastorders'>Previous Orders</Link>
 
                 </NavDropdown>
+                <Link className="nav-link" to= 'bugreporting' style={{ color: '#FF5147' }} >Report an issue</Link>
 
                 
               </ul>
@@ -49,6 +51,7 @@ function App() {
           <Route path='/items' element={<Item />} />
           <Route path='/carts' element={<Cart />} />
           <Route path='/pastorders' element={<PastOrders />} />
+          <Route path='/bugreporting' element={<Bug />}/>
         </Routes>
       </BrowserRouter>
     </div>
