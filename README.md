@@ -39,6 +39,7 @@ Backend
 - Items can be added to a cart
 - Can complete an order and cart will be emptied and record of order held on past orders page
 - Front end validation to ensure no duplicate customer names or items
+- Swagger API docs available when running (http://localhost:8082/swagger-ui/index.html)
 
 ## Limitations
 
