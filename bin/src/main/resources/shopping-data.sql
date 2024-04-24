@@ -1,2 +1,7 @@
-INSERT INTO `cart` VALUES (default, 'Jordan'); 
-INSERT INTO `item` VALUES (default, 'Apple', 2.99, 1); 
+INSERT INTO `cart` VALUES (default, 'Test business');
+INSERT INTO `cart` VALUES (default, 'Test business 2s');
+INSERT INTO `cart` VALUES (default, 'Test business 3');
+INSERT INTO `item` VALUES (default, 'Test course', 10.99, 10, null);
+INSERT INTO `item` VALUES (default, 'Test course 2', 120.50, 10, null);
+INSERT INTO `item` VALUES (default, 'Test course 3', 10.99, 10, null);
+INSERT INTO `item` VALUES (default, 'Test course 4', 10.99, 10, 3);
